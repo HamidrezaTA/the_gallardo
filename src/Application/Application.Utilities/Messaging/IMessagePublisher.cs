@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Application.MessageBus
 {
     public interface IMessagePublisher

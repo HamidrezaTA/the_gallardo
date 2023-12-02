@@ -1,0 +1,72 @@
+<Project>
+
+  <PropertyGroup>
+    <EfVersion>7.0.9</EfVersion>
+    <ApiVersion>5.1.0</ApiVersion>
+    <MsExtVersion>7.0.0</MsExtVersion>
+    <AutoMapperVersion>12.0.1</AutoMapperVersion>
+    <SwashbuckleVersion>6.5.0</SwashbuckleVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.Extensions.Caching.Memory" Version="$(MsExtVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(MsExtVersion)"/>
+    <PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="$(MsExtVersion)"/>
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MsExtVersion)"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.EntityFrameworkCore" Version="$(EfVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(EfVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Design" Version="$(EfVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EfVersion)"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="AutoMapper" Version="$(AutoMapperVersion)" />
+    <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="$(AutoMapperVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.Annotations" Version="$(SwashbuckleVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.AspNetCore.OpenApi" Version="7.0.9"/>
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="$(ApiVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="$(ApiVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Serilog" Version="3.0.0" />
+    <PackageReference Update="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Update="Serilog.Sinks.Sentry" Version="2.4.3" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Update="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
+    <PackageReference Update="Serilog.Settings.Configuration" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="MassTransit" Version="8.1.2" />
+    <PackageReference Update="MassTransit.RabbitMQ" Version="8.1.2" />
+    <PackageReference Update="MassTransit.AspNetCore" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Newtonsoft.Json" Version="13.0.3"/>
+    <PackageReference Update="RabbitMQ.Client" Version="6.6.0" />
+    <PackageReference Update="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Update="FluentValidation" Version="11.6.0" />
+    <PackageReference Update="StackExchange.Redis" Version="2.6.116"/>
+    <PackageReference Update="EFCore.NamingConventions" Version="7.0.2" />
+    <PackageReference Update="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="System.ServiceModel.Http" Version="6.1.0" />
+    <PackageReference Update="System.ServiceModel.Primitives" Version="6.1.0" />
+  </ItemGroup>
+
+</Project>

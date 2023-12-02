@@ -1,4 +1,7 @@
-﻿namespace Application.Utilities;
+﻿using System;
+using System.Threading.Tasks;
+
+namespace Application.Utilities;
 
 public interface ICacheProvider
 {
