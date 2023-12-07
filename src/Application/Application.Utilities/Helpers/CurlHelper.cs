@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
-namespace Application.Utilities.Helping
+namespace Application.Utilities.Helpers
 {
     public static class CurlHelper
     {
@@ -19,7 +15,7 @@ namespace Application.Utilities.Helping
 
             if (request.Content != null)
             {
-                string contentType = request.Content.Headers.ContentType?.ToString();
+                string? contentType = request.Content.Headers.ContentType?.ToString();
                 if (!string.IsNullOrEmpty(contentType))
                 {
                     curlCommand += $" -H 'Content-Type: {contentType}'";

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Application.MessageBus
+namespace Application.Utilities.MessagePublisher
 {
     public interface IMessagePublisher
     {

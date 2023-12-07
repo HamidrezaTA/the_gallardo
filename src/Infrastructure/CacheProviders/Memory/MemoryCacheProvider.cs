@@ -1,8 +1,10 @@
-﻿using Application.Utilities;
+﻿using System;
+using System.Threading.Tasks;
+using Application.Utilities.CacheProvider;
 using Microsoft.Extensions.Caching.Memory;
 
 
-namespace Infrastructure.Caching.Memory;
+namespace Infrastructure.CacheProviders.Memory;
 
 public class MemoryCacheProvider : ICacheProvider
 {
@@ -13,7 +15,7 @@ public class MemoryCacheProvider : ICacheProvider
         _database = database;
     }
 
-    public async Task<T> GetAsync<T>(string key)
+    public async Task<T?> GetAsync<T>(string key)
     {
         var value = _database.Get<T>(key);
         return value;
@@ -39,7 +41,7 @@ public class MemoryCacheProvider : ICacheProvider
         return await Task.FromResult(true);
     }
 
-    public async Task<T> GetOrSetAsync<T>(string cacheKey, Func<Task<T>> getDataFunc, TimeSpan cacheDuration)
+    public async Task<T?> GetOrSetAsync<T>(string cacheKey, Func<Task<T>> getDataFunc, TimeSpan cacheDuration)
     {
         try
         {
@@ -57,7 +59,7 @@ public class MemoryCacheProvider : ICacheProvider
 
             return cachedData;
         }
-        catch (Exception _exception)
+        catch (Exception)
         {
             return await getDataFunc();
         }

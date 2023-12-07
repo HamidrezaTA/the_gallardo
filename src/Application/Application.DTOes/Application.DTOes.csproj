@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Title>Application.Utilities</Title>
+    <Title>Application.DTOes</Title>
     <TargetFramework>net7.0</TargetFramework>
-    <PackageId>Application.Utilities</PackageId>
+    <PackageId>Application.DTOes</PackageId>
     <PackageVersion>1.0.1</PackageVersion>
     <Authors>Hamidreza.Taammoli</Authors>
-    <Description>Application Layer Utilities</Description>
+    <Description>Application Layer DTOes</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Nullable>enable</Nullable>
   </PropertyGroup>

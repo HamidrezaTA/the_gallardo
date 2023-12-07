@@ -1,19 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
-namespace Application.Helper
+namespace Application.Utilities.Helpers
 {
     public class EnumHelper
     {
         public static string GetEnumDisplayValue(Enum value)
         {
-            FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
+            FieldInfo? fieldInfo = value.GetType().GetField(value.ToString());
 
             if (fieldInfo == null)
-                return null;
+                return string.Empty;
 
             ShowDisplayAttribute[] attributes = (ShowDisplayAttribute[])fieldInfo.GetCustomAttributes(typeof(ShowDisplayAttribute), false);
 

@@ -1,12 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Title>Infrastructure</Title>
     <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>Infrastructure</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Hamidreza.Taammoli</Authors>
+    <Description>Infrastructure Layer</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Application.Utilities" Version="1.0.0" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Application\Application.DTOes\Application.DTOes.csproj" />
+    <ProjectReference Include="..\Application\Application.Utilities\Application.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,7 +25,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StackExchange.Redis"/>
+    <PackageReference Include="AutoMapper"/>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
 
 </Project>

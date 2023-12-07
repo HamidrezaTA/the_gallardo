@@ -1,10 +1,12 @@
-﻿using System.Text.Json;
-using Application.Utilities;
+﻿using System;
+using System.IO;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Application.Utilities.CacheProvider;
 using Application.Utilities.Logger;
-using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 
-namespace Infrastructure.Caching.Redis;
+namespace Infrastructure.CacheProviders.Redis;
 
 
 public class RedisCacheProvider : ICacheProvider
@@ -18,11 +20,12 @@ public class RedisCacheProvider : ICacheProvider
         _logger = logger;
     }
 
-    public async Task<T> GetAsync<T>(string key)
+    public async Task<T?> GetAsync<T>(string key)
     {
         var serializedData = await _database.StringGetAsync(key);
-        if (serializedData.IsNull)
-            return default(T);
+
+        if (!serializedData.IsNull)
+            return default;
 
         using (var stream = new MemoryStream(serializedData))
         {
@@ -46,7 +49,7 @@ public class RedisCacheProvider : ICacheProvider
         return await _database.KeyExistsAsync(key);
     }
 
-    public async Task<T> GetOrSetAsync<T>(string cacheKey, Func<Task<T>> getDataFunc, TimeSpan cacheDuration)
+    public async Task<T?> GetOrSetAsync<T>(string cacheKey, Func<Task<T>> getDataFunc, TimeSpan cacheDuration)
     {
         try
         {
@@ -66,7 +69,7 @@ public class RedisCacheProvider : ICacheProvider
 
             return cachedData;
         }
-        catch (RedisException _exception)
+        catch (RedisException)
         {
             return await getDataFunc();
         }
